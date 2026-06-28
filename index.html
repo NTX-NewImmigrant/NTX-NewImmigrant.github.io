@@ -14,7 +14,7 @@
     
     <!-- 網頁裡的一般副標題 -->
     <p style="font-size: 22px; color: #dc2626; font-weight: 700; margin-bottom: 45px; letter-spacing: 0.5px;">
-        第一代新移民  不必麻煩親友、不欠人情、絕不踩雷！
+        第一代新移民：不必麻煩親友、不欠人情、絕不踩雷！
     </p>
     
     <!-- 白色框框裡面的提示文字 -->
@@ -27,15 +27,44 @@
         
         <!-- 聯絡資訊區塊 -->
         <p style="font-size: 16px; color: #64748b; margin-bottom: 12px; font-weight: bold;">歡迎來信諮詢細節：</p>
-        <a href="mailto:ntxnewimmigrant@gmail.com" style="display: inline-block; background-color: #1e40af; color: white; padding: 12px 28px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.2); transition: background-color 0.2s;">
-            ✉️ 聯絡我們：ntxnewimmigrant@gmail.com
-        </a>
+        
+        <div style="margin-bottom: 15px;">
+            <!-- 原本的直接點擊發信按鈕 -->
+            <a href="mailto:ntxnewimmigrant@gmail.com" style="display: inline-block; background-color: #1e40af; color: white; padding: 12px 28px; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(30, 64, 175, 0.2);">
+                ✉️ 直接發信：ntxnewimmigrant@gmail.com
+            </a>
+        </div>
+
+        <div>
+            <!-- 全新新增：一鍵複製按鈕 -->
+            <button id="copyBtn" onclick="copyEmail()" style="display: inline-block; background-color: #10b981; color: white; padding: 12px 28px; border: none; font-size: 16px; font-weight: bold; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2); cursor: pointer;">
+                📋 點此直接複製 Email 網址
+            </button>
+        </div>
     </div>
 
     <!-- 頁尾 SEO 關鍵字 -->
     <p style="font-size: 12px; color: #94a3b8; margin-top: 80px;">
         服務地區：Frisco, Plano, Dallas, North Texas | 美國新移民 | 達拉斯安家 | Frisco租房 | 美國綠卡落地 | 美国新移民 | 达拉斯安家 | 绿卡落地 | 美国移民 | 德州落地服务
     </p>
+
+    <!-- 負責執行複製功能的隱形小腳本 -->
+    <script>
+        function copyEmail() {
+            var email = "ntxnewimmigrant@gmail.com";
+            navigator.clipboard.writeText(email).then(function() {
+                var btn = document.getElementById("copyBtn");
+                btn.innerText = "✅ 已複製成功！可直接貼上";
+                btn.style.backgroundColor = "#059669";
+                setTimeout(function() {
+                    btn.innerText = "📋 點此直接複製 Email 網址";
+                    btn.style.backgroundColor = "#10b981";
+                }, 3000);
+            }).catch(function(err) {
+                alert("複製失敗，請手動複製： " + email);
+            });
+        }
+    </script>
 
 </body>
 </html>
